@@ -1,6 +1,7 @@
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase.Extensions;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -9,6 +10,11 @@ public class LabelUsername : MonoBehaviour
     [SerializeField] private TMP_Text label;
 
     void Awake()
+    {
+        FirebaseAuth.DefaultInstance.StateChanged += HandleStateChanged;
+    }
+
+    private void HandleStateChanged(object sender, EventArgs e)
     {
         if (FirebaseAuth.DefaultInstance.CurrentUser != null)
         {
