@@ -45,7 +45,7 @@ public class SendedRequestHandler : MonoBehaviour
                                      .GetReference("users/" + userId + "/SendRequests/" + friendId).GetValueAsync());
 
         //Validamos si la respuesta es una solitud pendinete
-        if ((checkRequestId.Value == null))
+        if ((checkRequestId.Exists))
         {
             Debug.Log("Se descarta respuesta de solicitud de amistad con id " + friendId);
             eliminarSolicitud(friendId, "friendResponse");

@@ -36,13 +36,20 @@ public class ButtonSendRequest : MonoBehaviour
                     .Child(userId)
                     .SetValueAsync(username).ContinueWith(t =>
                     {
-                        //Manejar el Error
-                        mDatabaseRef.Child("users")
-                           .Child(userId)
-                           .Child("SendRequests")
-                           .Child(friendUserId)
-                           .SetValueAsync(0);
-                        //Establece estado 0 para solicitud pendiente
+                        if (t.IsFaulted)
+                        {
+
+                        }
+                        else if (t.IsCompleted)
+                        {
+                            //Manejar el Error
+                            mDatabaseRef.Child("users")
+                               .Child(userId)
+                               .Child("SendRequests")
+                               .Child(friendUserId)
+                               .SetValueAsync(0);
+                            //Establece estado 0 para solicitud pendiente
+                        }
                     });
     }
 }
