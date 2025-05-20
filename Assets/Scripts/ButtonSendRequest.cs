@@ -17,7 +17,6 @@ public class ButtonSendRequest : MonoBehaviour
         _friendUserIdInputField = GameObject.Find("InputFieldFriendUserId").GetComponent<TMP_InputField>();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _sendRequestButton.onClick.AddListener(HandleSedRequestButtonClicked);
@@ -33,7 +32,9 @@ public class ButtonSendRequest : MonoBehaviour
 
         mDatabaseRef.Child("users").Child(friendUserId).Child("solicitudesRecibidas").Child(userId).SetValueAsync(username).ContinueWith(t => 
         {
+            //Manejar error
             mDatabaseRef.Child("users").Child(userId).Child("solicitudesEnviadas").Child(friendUserId).SetValueAsync(0);
+            //Establece estado 0 para solicitud pendiente
         });
     }
 
