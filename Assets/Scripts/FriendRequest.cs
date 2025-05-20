@@ -6,15 +6,29 @@ using static UnityEngine.Rendering.GPUSort;
 
 public class FriendRequest : MonoBehaviour
 {
-    void Start()
+    private void OnEnable()
     {
-        var mDatabaseRef = FirebaseDatabase.DefaultInstance.RootReference;
-        var userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
-
-        var reference = mDatabaseRef.Child("users").Child(userId).Child("solicitudesRecibidas");
-        reference.ChildAdded += HandleChildAdded;
+        Debug.Log("OnEnable");
+        if (FirebaseAuth.DefaultInstance.CurrentUser != null)
+        {
+            var mDatabaseRef = FirebaseDatabase.DefaultInstance.RootReference;
+            var userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+            var reference = mDatabaseRef.Child("users").Child(userId).Child("friendRequests");
+            reference.ChildAdded += HandleChildAdded;
+        }
     }
 
+    private void OnDisable()
+    {
+        Debug.Log("OnDisable");
+        if (FirebaseAuth.DefaultInstance.CurrentUser != null)
+        {
+            var mDatabaseRef = FirebaseDatabase.DefaultInstance.RootReference;
+            var userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
+            var reference = mDatabaseRef.Child("users").Child(userId).Child("friendRequests");
+            reference.ChildAdded -= HandleChildAdded;
+        }
+    }
     private void HandleChildAdded(object sender, ChildChangedEventArgs args)
     {
         if (args.DatabaseError != null)
@@ -24,15 +38,10 @@ public class FriendRequest : MonoBehaviour
         }
 
         DataSnapshot snapshot = args.Snapshot;
+
         string friendId = snapshot.Key;
         string friendUsername = snapshot.Value.ToString();
 
-        Debug.Log("Tienes una solicitud de amistad de " + friendUsername);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Tienes una solicitud de amista de  " + friendUsername);
     }
 }
