@@ -27,10 +27,8 @@ public class LabelIncomingFriend : MonoBehaviour
     {
         var userId = FirebaseAuth.DefaultInstance.CurrentUser.UserId;
 
-        var mDatabaseRef = FirebaseDatabase.DefaultInstance.RootReference;
-        string friendUserId = _frienUserIdInputField.text;    
-            
-            mDatabaseRef.Child("users").Child(userId).Child("friendRequests").Child(userId)->ChildAdded)
+        FirebaseDatabase.DefaultInstance
+            .GetReference("users/" + userId + "/friendRequests")
             .GetValueAsync().ContinueWithOnMainThread(task =>
             {
                 if (task.IsFaulted)
