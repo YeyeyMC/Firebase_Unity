@@ -4810,6 +4810,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registrationButton: {fileID: 469294129}
+  "LogContrase\xF1a": {fileID: 0}
+  label: {fileID: 0}
+  _emailInputField: {fileID: 0}
+  _passwordInputField: {fileID: 0}
+  _usernameInputField: {fileID: 0}
 --- !u!114 &469294129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6297,7 +6302,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 579903723}
-  - {fileID: 1541096876}
   m_Father: {fileID: 1180975618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -10837,6 +10841,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registrationButton: {fileID: 1001599400}
+  "LogContrase\xF1a": {fileID: 0}
+  label: {fileID: 0}
+  _emailInputField: {fileID: 0}
+  _passwordInputField: {fileID: 0}
+  _usernameInputField: {fileID: 0}
 --- !u!114 &1001599400
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13039,6 +13048,7 @@ RectTransform:
   m_Children:
   - {fileID: 550484926}
   - {fileID: 1991282908}
+  - {fileID: 1541096876}
   - {fileID: 92574475}
   - {fileID: 559664435}
   m_Father: {fileID: 0}
@@ -13228,6 +13238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registrationButton: {fileID: 1212726574}
+  "LogContrase\xF1a": {fileID: 0}
+  label: {fileID: 0}
+  _emailInputField: {fileID: 0}
+  _passwordInputField: {fileID: 0}
+  _usernameInputField: {fileID: 0}
 --- !u!114 &1212726574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16975,7 +16990,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 852377328}
-  m_Father: {fileID: 550484926}
+  m_Father: {fileID: 1180975618}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -18179,6 +18194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _registrationButton: {fileID: 1752642546}
+  "LogContrase\xF1a": {fileID: 1541096875}
+  label: {fileID: 852377329}
+  _emailInputField: {fileID: 1007999727}
+  _passwordInputField: {fileID: 2098183559}
+  _usernameInputField: {fileID: 1499949359}
 --- !u!114 &1752642546
 MonoBehaviour:
   m_ObjectHideFlags: 0
