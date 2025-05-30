@@ -47,6 +47,7 @@ public class ButtonSignup : MonoBehaviour
         }
         else if (registerTask.IsFaulted)
         {
+            // Handle the error intentar crear cuenta con correo existentee
             Debug.LogError("CreateUserWithEmailAndPasswordAsync encountered an error: " + registerTask.Exception);
         }
         else
